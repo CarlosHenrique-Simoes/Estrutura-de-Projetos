@@ -1,1 +1,1 @@
-# Meu projeto está no github# StaterProjectKit
+# Meu projeto está no Github
