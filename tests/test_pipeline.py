@@ -7,12 +7,32 @@ df2 = pd.DataFrame({"a": [7, 8, 9], "b": [10, 11, 12]})
 
 
 def testar_a_concatenacao_da_lista_de_dataframes():
+    """
+    Testa a função concat_data_frames para verificar se ela concatena
+    corretamente uma lista de DataFrames.
 
+    Cria dois DataFrames simples e os concatena usando a função
+    concat_data_frames.
+
+    Compara o resultado com a concatenação direta usando pd.concat
+    para assegurar que o resultado é o esperado.
+    """
+
+    # Lista de dataframes a serem concatenados
     data_frame_list = [df1, df2]
+
+    # Concatenação direta usando pd.concat
     data_frame = pd.concat(data_frame_list, ignore_index=True)
 
+    # Concatenação usando a função concat_data_frames
     df = concat_data_frames(data_frame_list)
 
+    # Verifica se o DataFrame resultante tem a forma esperada
     assert df.shape == (6, 2)
+
+    # Verifica se o DataFrame resultante é igual ao da concatenação direta
     assert data_frame.equals(df)
+
+    # Verifica se o DataFrame resultante da concatenação direta
+    # tem a forma esperada
     assert data_frame.shape == (6, 2)
