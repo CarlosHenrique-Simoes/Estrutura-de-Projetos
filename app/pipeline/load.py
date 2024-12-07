@@ -1,23 +1,25 @@
-import os  # biblioteca para manipular arquivos e pastas
+from pathlib import (  # noqa: D100
+    Path,
+)  # Biblioteca para trabalhar com caminhos de arquivos
 
 import pandas as pd  # biblioteca para trabalhar com dataframes
 
 
-def load_excel(data_frame: pd.DataFrame, output_path: str, file_name: str):
-    """
-    Receber um data frame e salvar em um arquivo excel
+def load_excel(data_frame: pd.DataFrame, output: str, file_name: str) -> str:
+    """Receber um data frame e salvar em um arquivo excel.
 
-    args:
+    Args:
         data_frame: (pd.DataFrame): dataframe a ser salvo como excel
-        output_path: (str): caminho onde o arquivo sera salvo
+        output: (str): caminho onde o arquivo sera salvo
         file_name: (str): nome do arquivo a ser salvo
 
     return: "Arquivo salvo com sucesso"
+
     """
-    # Verificar se o diret rio de saida existe, caso n o, criar
-    if not os.path.exists(output_path):
-        os.makedirs(output_path)
+    # Verificar se o diretório de saida existe, caso não, criar
+    if not Path(output).exists():
+        Path(output).mkdir(parents=True)
 
     # Salvar o data frame em um arquivo excel
-    data_frame.to_excel(f'{output_path}/{file_name}.xlsx', index=False)
-    return 'Arquivo salvo com sucesso'
+    data_frame.to_excel(f"{output}/{file_name}.xlsx", index=False)
+    return "Arquivo salvo com sucesso"
