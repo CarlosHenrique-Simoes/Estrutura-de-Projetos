@@ -1,0 +1,21 @@
+site_name: Meu Projeto ETL
+theme:
+  name: material
+  palette:
+    primary: purple
+    accent: blue
+  language: pt
+
+repo_name: "CarlosHenrique/Estrutura-de-Projetos"
+repo_url: "https://github.com/CarlosHenrique-Simoes/Estrutura-de-Projetos"
+
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: "mermaid"
+          class: "mermaid"
+
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
