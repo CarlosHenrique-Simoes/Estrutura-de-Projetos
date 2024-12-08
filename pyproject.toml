@@ -14,8 +14,15 @@ pillow = "^11.0.0"
 pytest = "^8.3.4"
 isort = "^5.13.2"
 blue = "^0.9.1"
+pip-audit = "^2.7.3"
+taskipy = "^1.14.1"
 
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.taskipy.tasks]
+format = "blue --check . && isort --check --diff ."
+test = "poetry run pytest -v"
+run = "poetry run python app/main.py"
